@@ -529,7 +529,7 @@ class DocumentClassificationDataset(Dataset):
         
 class DocumentClassificationDataLoader(DataLoader):
     def __init__(self, max_seq_len=512, *args, **kwargs):
-        super(DocumentSentimentDataLoader, self).__init__(*args, **kwargs)
+        super(DocumentClassificationDataLoader, self).__init__(*args, **kwargs)
         self.collate_fn = self._collate_fn
         self.max_seq_len = max_seq_len
         
