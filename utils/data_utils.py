@@ -501,10 +501,10 @@ class EntailmentDataLoader(DataLoader):
 #####
 # Document Sentiment Prosa
 #####
-class DocumentSentimentDataset(Dataset):
+class DocumentClassificationDataset(Dataset):
     # Static constant variable
-    LABEL2INDEX = {'positive': 0, 'neutral': 1, 'negative': 2}
-    INDEX2LABEL = {0: 'positive', 1: 'neutral', 2: 'negative'}
+    LABEL2INDEX = {'penelitian': 0, 'pengabdian': 1}
+    INDEX2LABEL = {0: 'penelitian', 1: 'pengabdian'}
     NUM_LABELS = 3
     
     def load_dataset(self, path): 
@@ -527,7 +527,7 @@ class DocumentSentimentDataset(Dataset):
     def __len__(self):
         return len(self.data)    
         
-class DocumentSentimentDataLoader(DataLoader):
+class DocumentClassificationDataLoader(DataLoader):
     def __init__(self, max_seq_len=512, *args, **kwargs):
         super(DocumentSentimentDataLoader, self).__init__(*args, **kwargs)
         self.collate_fn = self._collate_fn
